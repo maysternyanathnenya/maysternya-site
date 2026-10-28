@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Майстерня натхнення</title>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700&family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--bg:#FFFFFF;--card:#FFFFFF;--ink:#3A2328;--mute:#8A5A62;--wood:#E8A5B0;--wood2:#F6CFD5;--teal:#B04A60;--line:#F0D3D8;--accent:#C2566B;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px;height:auto}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Manrope,system-ui,sans-serif}
+h1,h2,h3,.brand{font-family:Bitter,Georgia,serif}
+.logo{border-radius:50%;background:#fff;box-shadow:0 4px 14px rgba(122,46,59,.18);width:clamp(120px,22vw,170px);height:auto;display:block}
+header{background:linear-gradient(120deg,#F7C6CF 0%,#FBD3C6 50%,#FFE0C2 100%);color:#7A2E3B;padding:28px 5vw 24px;padding-top:calc(28px + env(safe-area-inset-top,0px));display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.brand{font-size:clamp(1.3rem,3.2vw,1.9rem);font-weight:500;letter-spacing:.08em}
+nav{display:flex;gap:20px;align-items:center;font-size:.95rem}
+nav a{color:var(--hdrt);text-decoration:none;opacity:.85}nav a:hover,nav a:focus-visible{opacity:1;text-decoration:underline}
+button{font:inherit;cursor:pointer}
+.fab{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:15;width:64px;height:64px;border-radius:50%;background:var(--accent);color:#fff;border:0;display:grid;place-items:center;box-shadow:0 4px 16px rgba(194,86,107,.35)}
+.fab b{position:absolute;top:-4px;right:-4px;min-width:24px;height:24px;border-radius:12px;background:var(--ink);color:#fff;font-size:.8rem;display:grid;place-items:center;padding:0 5px}
+.layout{display:grid;grid-template-columns:max-content 1fr;align-items:start}
+.side{position:sticky;top:24px;padding:32px 28px 32px 5vw;min-height:0}
+.side .grid{grid-template-columns:1fr}
+.side h2{margin:0;font-size:1.7rem;font-weight:700;text-align:left;background:none;box-shadow:none;text-shadow:none;border:0;border-radius:0;white-space:nowrap}
+main{min-width:0;padding:32px 5vw 32px 3vw;border-left:1px solid #000}
+main .grid{grid-template-columns:repeat(auto-fill,minmax(300px,400px))}
+:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:440px}
+.hw,.h3{display:flex;flex-direction:column;justify-content:flex-end;padding:40px 5vw;color:#fff}
+.hw{background:repeating-linear-gradient(98deg,#7a4d22 0 6px,#8A5A2B 6px 13px,#6d441d 13px 15px,#94622f 15px 26px)}
+.h3{background:repeating-linear-gradient(0deg,#0f6a70 0 5px,#177E83 5px 10px)}
+.hero h1{margin:0 0 8px;font-size:clamp(1.6rem,3.6vw,2.6rem);line-height:1.15;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.hero p{margin:0;max-width:34ch;text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.lead{padding:28px 5vw;text-align:center;font-size:1.15rem;max-width:70ch;margin:0 auto}
+section{padding:48px 5vw}
+h2{font-size:clamp(1.5rem,3vw,2.1rem);margin:0 0 20px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tab{background:transparent;border:1.5px solid var(--line);color:var(--ink);border-radius:999px;padding:7px 18px}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px}
+.p{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.pic{height:150px;display:flex;align-items:flex-end;padding:10px;color:#fff;font-size:.85rem;font-weight:600}
+.pic.w{background:repeating-linear-gradient(97deg,#8A5A2B 0 7px,#9a6933 7px 15px,#74481f 15px 17px,#A8742f 17px 30px)}
+.pic.d{background:repeating-linear-gradient(0deg,#177E83 0 4px,#1f9096 4px 8px)}
+.pic span{background:rgba(0,0,0,.55);padding:2px 9px;border-radius:4px}
+.pb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pb h3{margin:0;font-size:1.1rem}.pb p{margin:0;color:var(--mute);font-size:.92rem;flex:1}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.price{font-weight:700;font-size:1.1rem}
+.add{background:var(--accent);color:#fff;border:0;border-radius:6px;padding:7px 14px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.two p{max-width:60ch}
+#cart{position:fixed;right:0;top:0;bottom:0;width:min(380px,100%);background:var(--card);border-left:1px solid var(--line);padding:20px;padding-top:calc(20px + env(safe-area-inset-top,0px));transform:translateX(100%);transition:transform .25s;z-index:20;display:flex;flex-direction:column;box-shadow:-8px 0 30px rgba(51,40,43,.1)}
+#cart.open{transform:none}
+#items{flex:1;overflow:auto;margin:12px 0}
+.it{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.it button{background:none;border:0;color:var(--mute);text-decoration:underline;padding:0}
+input,textarea{width:100%;font:inherit;padding:10px;border:1.5px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);margin-bottom:10px}
+.send{background:var(--wood);color:var(--ink);border:0;border-radius:6px;padding:10px 22px;font-weight:600}
+#msg{margin-top:10px;color:var(--teal);font-weight:600;min-height:1.5em}
+footer{background:transparent;color:var(--mute);text-align:center;border-top:1px solid var(--line);padding:28px 5vw;padding-bottom:calc(28px + env(safe-area-inset-bottom,0px));font-size:.92rem}
+@media (max-width:760px){.layout{grid-template-columns:1fr}.side{position:static;min-height:0;padding:24px 5vw 12px;border-bottom:1px solid #000}main{border-left:0}}
+@media (max-width:700px){.hero,.two{grid-template-columns:1fr}.hero{min-height:0}.hw,.h3{padding:32px 5vw}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+.car{position:relative}
+.trk{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.trk::-webkit-scrollbar{display:none}
+.trk img{flex:0 0 100%;width:100%;aspect-ratio:1;object-fit:contain;background:#FBF3F4;scroll-snap-align:center;display:block}
+.cb{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.88);color:var(--ink);font-size:1.5rem;line-height:1;padding:0 0 3px}
+.cb.l{left:8px}.cb.r{right:8px}
+.cn{position:absolute;right:10px;bottom:10px;background:rgba(58,35,40,.72);color:#fff;font-size:.8rem;padding:2px 10px;border-radius:999px}
+.pt{font:700 1.7rem/1.2 Bitter,Georgia,serif!important;margin:0}
+.ps{margin:6px 0 0;padding-left:1.1em;font-size:.95rem}
+.ml{margin:8px 0 0;font-size:.95rem}
+.pb .ml{flex:none}
+.pb .qc{margin-top:auto;padding-top:10px}
+.qc{display:flex;align-items:center;gap:8px;margin-top:10px}
+.qc button{width:36px;height:36px;border-radius:8px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font-size:1.2rem;padding:0}
+.qc input{width:84px;margin:0;text-align:center;padding:7px}
+.trk img{cursor:zoom-in}
+.lb{position:fixed;inset:0;z-index:40;background:rgba(28,26,18,.88);display:flex;align-items:center;justify-content:center;padding:16px}
+.lb[hidden]{display:none}
+.lbpanel{position:relative;background:var(--card);border-radius:14px;width:min(1040px,100%);max-height:calc(100vh - 32px);overflow:auto;display:grid;grid-template-columns:1.25fr 1fr;gap:8px}
+.lbx{position:absolute;top:10px;right:10px;z-index:3;width:40px;height:40px;border-radius:50%;border:0;background:#fff;color:var(--ink);font-size:1.6rem;line-height:1;padding:0 0 3px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.lbm{padding:16px;min-width:0}
+.lbv{position:relative;background:#FBF3F4;border-radius:10px;display:flex;align-items:center;justify-content:center;min-height:300px}
+.lbv img{max-width:100%;max-height:62vh;object-fit:contain;display:block}
+.lbn{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.9);color:var(--ink);font-size:1.5rem;line-height:1;padding:0 0 3px}
+.lbl{left:8px}.lbr{right:8px}
+.lbc{position:absolute;bottom:8px;right:10px;background:rgba(58,35,40,.72);color:#fff;font-size:.8rem;padding:2px 10px;border-radius:999px}
+.lbt{display:flex;gap:8px;margin-top:10px;overflow-x:auto}
+.th{flex:0 0 auto;width:60px;height:60px;padding:0;border:2px solid var(--line);border-radius:8px;overflow:hidden;background:#FBF3F4}
+.th.on{border-color:var(--wood)}
+.th img{width:100%;height:100%;object-fit:cover;display:block}
+.lbi2{padding:28px 24px 24px 8px;display:flex;flex-direction:column;gap:8px}
+.lbi2 h2{font-size:1.7rem;margin:0;padding-right:36px}
+.lbi2 h3{margin:14px 0 0;font-size:1.05rem;border-top:1px solid var(--line);padding-top:14px}
+.lbi2 p{margin:0}
+.lbpr{font-size:1.5rem;font-weight:700}
+.lbmin{color:var(--mute);font-size:.95rem}
+.vs{width:100%;font:inherit;padding:9px 10px;border:1.5px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);margin-top:4px}
+.ph{aspect-ratio:4/3;background:repeating-linear-gradient(45deg,#FDEEF0 0 14px,#F8DDE2 14px 28px);display:flex;align-items:center;justify-content:center;color:var(--mute);font-weight:600}
+.more{background:none;border:0;padding:0;color:var(--teal);font-weight:600;text-decoration:underline}
+.lbd p{margin:10px 0 0}.lbd h4{margin:14px 0 4px;font-size:1rem}.lbd ul{margin:0;padding-left:1.1em}
+.ok{color:var(--teal);font-weight:600;min-height:1.4em}
+@media (max-width:760px){.lbpanel{grid-template-columns:1fr}.lbi2{padding:8px 18px 22px}.lbv img{max-height:50vh}}
+.cats{background:#EBB3BC;display:flex;padding:0}
+.cat{flex:1;background:transparent;border:0;color:var(--ink);padding:24px 12px;font-weight:700;font-size:clamp(1rem,2.6vw,1.5rem);font-family:Bitter,Georgia,serif;text-align:center}
+.cat+.cat{border-left:1px solid rgba(58,35,40,.15)}
+.cat:hover{background:rgba(255,255,255,.18)}
+.cat[aria-pressed="true"]{background:var(--accent);color:#fff}
+.co{padding:28px 5vw 56px;max-width:1080px;margin:0 auto}
+.co h1{font-size:clamp(1.6rem,3vw,2.2rem);margin:0 0 20px}
+.co h2{font-size:1.25rem;margin:0 0 12px}
+.cogrid{display:grid;grid-template-columns:1fr 1.2fr;gap:32px;align-items:start}
+.cosum{border:1px solid var(--line);border-radius:12px;padding:20px;background:var(--card)}
+.cof label{display:block;font-weight:600;font-size:.95rem;margin-bottom:4px}
+.rad{display:flex;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.rad label{display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);border-radius:8px;padding:10px 14px;margin:0;flex:1;min-width:140px}
+.rad input{width:auto;margin:0}
+.back{background:none;border:0;color:var(--ink);text-decoration:underline;padding:0;margin-bottom:14px}
+.err{color:#B3261E;font-weight:600;min-height:1.4em;margin:0 0 8px}
+.cof .send{width:100%;padding:14px;font-size:1.05rem;color:var(--ink)}
+.cogrid[hidden],.cosuc[hidden],.co[hidden]{display:none}
+.cosuc{border:1px solid var(--line);border-radius:12px;padding:28px;background:var(--card)}
+@media (max-width:760px){.cogrid{grid-template-columns:1fr}}
+.hrow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:3vw;width:100%;max-width:1200px;margin:0 auto}
+.hrow .logo{width:clamp(150px,24vw,300px)}
+.hi{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;color:#7A2E3B}
+.hi p{margin:0;font-family:Bitter,Georgia,serif;font-weight:500;font-size:clamp(1rem,1.9vw,1.55rem);line-height:1.3;max-width:15em}
+.hi p b{font-weight:700;font-size:1.45em;color:#9E2F4C;line-height:1.15}
+.hic{display:flex;align-items:center;justify-content:center;color:#D47A8C}
+.hcirc{width:clamp(70px,9vw,112px);height:clamp(70px,9vw,112px);border-radius:50%;background:rgba(255,255,255,.55);border:2px solid rgba(194,86,107,.3);display:grid;place-items:center;color:#B04A60;flex:none}
+.hcirc svg{width:58%;height:58%}
+.fl{width:clamp(50px,7vw,110px);height:auto;flex:none}.fr{transform:scaleX(-1)}
+.hdv{display:flex;align-items:center;gap:8px;color:#D47A8C;width:min(220px,80%)}.hdv i{flex:1;height:1px;background:currentColor;opacity:.6}.hdv svg{width:14px;height:13px}
+header .brand{font-size:clamp(1.5rem,3.6vw,2.7rem);color:#7A2E3B;margin-top:10px}
+@media (max-width:760px){.hrow{grid-template-columns:1fr 1fr;gap:18px 14px;align-items:start}.hrow .logo{grid-column:1/-1;grid-row:1;justify-self:center}.fl{display:none}.hi p{font-size:.92rem}.hdv{display:none}}
+.vb{display:flex;align-items:center;justify-content:center;gap:10px;background:#7360F2;color:#fff;text-decoration:none;font-weight:700;font-size:1.1rem;border-radius:10px;padding:16px 20px;margin:16px 0 10px;box-shadow:0 4px 14px rgba(115,96,242,.3)}.vb:hover{background:#5f4ce0}
+.vbalt{font-size:.92rem;color:var(--mute)}.vbalt a{color:var(--teal)}.lnk{background:none;border:0;padding:0;color:var(--teal);text-decoration:underline;font:inherit}
+</style>
+</head>
+<body>
+<header>
+  <div class="hrow"><div class="hi"><div class="hic"><svg class="fl" viewBox="0 0 120 70" aria-hidden="true"><path d="M118 46c-22 0-30-4-42-14S52 14 38 18 24 34 34 38s14-6 8-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M80 36c6-8 16-10 24-6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M60 14c0-5 7-6 7-1 0-5 7-4 7 1 0 5-7 9-7 9s-7-4-7-9z" fill="currentColor" opacity=".55"/><path d="M96 20c0-3.5 5-4 5-.7 0-3.3 5-2.8 5 .7s-5 6.3-5 6.3-5-2.8-5-6.3z" fill="currentColor" opacity=".4"/><circle cx="12" cy="40" r="2" fill="currentColor" opacity=".5"/><circle cx="4" cy="38" r="1.4" fill="currentColor" opacity=".4"/></svg><span class="hcirc"><svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h10M2 30h12M6 38h8"/><path d="M16 16h26v28H16z"/><path d="M42 26h10l8 9v9H42z"/><circle cx="24" cy="47" r="5" fill="#fff"/><circle cx="51" cy="47" r="5" fill="#fff"/><path d="M29 26.5c0-2.6 3.6-3 3.6-.4 0-2.6 3.6-2.2 3.6.4S32.6 32 32.6 32 29 29.1 29 26.5z" fill="currentColor" stroke-width="1.4"/></svg></span><svg class="fl fr" viewBox="0 0 120 70" aria-hidden="true"><path d="M118 46c-22 0-30-4-42-14S52 14 38 18 24 34 34 38s14-6 8-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M80 36c6-8 16-10 24-6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M60 14c0-5 7-6 7-1 0-5 7-4 7 1 0 5-7 9-7 9s-7-4-7-9z" fill="currentColor" opacity=".55"/><path d="M96 20c0-3.5 5-4 5-.7 0-3.3 5-2.8 5 .7s-5 6.3-5 6.3-5-2.8-5-6.3z" fill="currentColor" opacity=".4"/><circle cx="12" cy="40" r="2" fill="currentColor" opacity=".5"/><circle cx="4" cy="38" r="1.4" fill="currentColor" opacity=".4"/></svg></div><p>Доставка від<br><b>1500 грн</b><br>безкоштовна</p><span class="hdv" aria-hidden="true"><i></i><svg viewBox="0 0 20 18"><path d="M2 6c0-4.5 8-5.2 8-.8C10 .8 18 1.5 18 6s-8 10-8 10S2 10.5 2 6z" fill="currentColor"/></svg><i></i></span></div><img class="logo" src="img/001.jpg" alt="Логотип Майстерня натхнення" width="160" height="160"><div class="hi"><div class="hic"><svg class="fl" viewBox="0 0 120 70" aria-hidden="true"><path d="M118 46c-22 0-30-4-42-14S52 14 38 18 24 34 34 38s14-6 8-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M80 36c6-8 16-10 24-6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M60 14c0-5 7-6 7-1 0-5 7-4 7 1 0 5-7 9-7 9s-7-4-7-9z" fill="currentColor" opacity=".55"/><path d="M96 20c0-3.5 5-4 5-.7 0-3.3 5-2.8 5 .7s-5 6.3-5 6.3-5-2.8-5-6.3z" fill="currentColor" opacity=".4"/><circle cx="12" cy="40" r="2" fill="currentColor" opacity=".5"/><circle cx="4" cy="38" r="1.4" fill="currentColor" opacity=".4"/></svg><span class="hcirc"><svg viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18c-3 3-3 10 4 20s16 15 21 15c3 0 5-2 6-4l-7-7-5 3c-4-2-9-7-11-11l3-5-7-7c-2 0-3 1-4 2z"/><path d="M34 8h22a4 4 0 0 1 4 4v14a4 4 0 0 1-4 4h-9l-7 6v-6h-6a4 4 0 0 1-4-4V12a4 4 0 0 1 4-4z"/><path d="M40.5 17c0-2.6 3.6-3 3.6-.4 0-2.6 3.6-2.2 3.6.4s-3.6 5.4-3.6 5.4-3.6-2.8-3.6-5.4z" fill="currentColor" stroke-width="1.4"/></svg></span><svg class="fl fr" viewBox="0 0 120 70" aria-hidden="true"><path d="M118 46c-22 0-30-4-42-14S52 14 38 18 24 34 34 38s14-6 8-10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M80 36c6-8 16-10 24-6" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M60 14c0-5 7-6 7-1 0-5 7-4 7 1 0 5-7 9-7 9s-7-4-7-9z" fill="currentColor" opacity=".55"/><path d="M96 20c0-3.5 5-4 5-.7 0-3.3 5-2.8 5 .7s-5 6.3-5 6.3-5-2.8-5-6.3z" fill="currentColor" opacity=".4"/><circle cx="12" cy="40" r="2" fill="currentColor" opacity=".5"/><circle cx="4" cy="38" r="1.4" fill="currentColor" opacity=".4"/></svg></div><p>Після замовлення з&nbsp;Вами зв’яжеться менеджер для уточнення написів і&nbsp;малюнків</p><span class="hdv" aria-hidden="true"><i></i><svg viewBox="0 0 20 18"><path d="M2 6c0-4.5 8-5.2 8-.8C10 .8 18 1.5 18 6s-8 10-8 10S2 10.5 2 6z" fill="currentColor"/></svg><i></i></span></div></div>
+  <div class="brand">Майстерня натхнення</div>
+
+</header>
+<div id="shop">
+<div class="cats"><button class="cat" data-cat="w" aria-pressed="true">Дерев’яні вироби</button><button class="cat" data-cat="d" aria-pressed="false">3D друк</button></div>
+
+<div class="layout">
+<aside class="side"><h2>Каталог</h2></aside>
+<main id="catalog"><div class="grid" id="grid"></div>
+</main>
+</div>
+
+<button class="fab" id="open" aria-label="Відкрити кошик"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h3l2.6 12.2a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.5L21.5 8H6"/><circle cx="10" cy="20.5" r="1.3"/><circle cx="18" cy="20.5" r="1.3"/></svg><b id="cnt">0</b></button>
+
+<footer>© 2026 Майстерня натхнення. Дерев’яні та 3D-вироби з України.</footer>
+</div>
+<section id="checkout" class="co" hidden>
+<button class="back" id="coback">&larr; Повернутися до каталогу</button>
+<h1>Оформлення замовлення</h1>
+<div class="cogrid" id="cogrid">
+<div class="cosum"><h2>Ваше замовлення</h2><div id="cosl"></div><div class="row"><span>Разом:</span><span class="price" id="cost"></span></div></div>
+<div class="cof">
+<h2>Дані для доставки</h2>
+<label for="cln">Прізвище</label><input id="cln" autocomplete="family-name">
+<label for="cfn">Ім’я</label><input id="cfn" autocomplete="given-name">
+<label for="cph">Номер телефону</label><input id="cph" type="tel" placeholder="+380" autocomplete="tel" aria-describedby="cphn" style="margin-bottom:4px"><p id="cphn" style="margin:0 0 12px;font-size:.88rem;color:var(--mute)">Зв’яжемось з Вами у месенджері Viber/Telegram або зателефонуємо</p>
+<label id="dvl">Служба доставки</label>
+<div class="rad" role="radiogroup" aria-labelledby="dvl"><label><input type="radio" name="dv" value="Нова пошта" checked>Нова пошта</label><label><input type="radio" name="dv" value="Укрпошта">Укрпошта</label></div>
+<label for="ccity">Місто</label><input id="ccity" autocomplete="address-level2">
+<label for="cbr">Відділення</label><input id="cbr" placeholder="Наприклад: відділення №12">
+<label for="cnm">Імена або написи на виробах</label><textarea id="cnm" rows="4" placeholder="Будь ласка, вкажіть імена або написи, які бажаєте на виробах. Наприклад: підставка — Софія, лінійка — Максим"></textarea>
+<p class="err" id="coerr" role="alert"></p>
+<button class="send" id="cosend">Підтвердити замовлення</button>
+</div>
+</div>
+<div class="cosuc" id="cosuc" hidden><h2>Залишився один крок!</h2><p>Натисніть кнопку нижче — відкриється Viber із готовим повідомленням. Надішліть його, щоб ми отримали ваше замовлення.</p><a class="vb" id="vbr" href="#" target="_top" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z"/></svg>Надіслати замовлення у Viber</a><p class="vbalt">Якщо Viber не відкрився — <button class="lnk" id="vcopy">скопіюйте текст замовлення</button> і надішліть його на номер <a href="tel:+380997738531">+380 99 773 85 31</a> у Viber або Telegram.</p><h3 style="margin:18px 0 6px;font-size:1.05rem">Ваше замовлення</h3><p id="cosuct" style="white-space:pre-line;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px;font-size:.95rem"></p><button class="back" id="cook">&larr; Повернутися до каталогу</button></div>
+</section>
+
+<aside id="cart" aria-label="Кошик">
+  <div style="display:flex;justify-content:space-between;align-items:center"><h2 style="margin:0">Кошик</h2><button class="tab" id="close">Закрити</button></div>
+  <div id="items"></div>
+  <div class="row"><span>Разом:</span><span class="price" id="sum">0 ₴</span></div>
+  <button class="send" id="order" style="margin-top:12px">Оформити замовлення</button>
+  <div id="cmsg" role="status" style="margin-top:8px;color:var(--teal);font-weight:600"></div>
+</aside>
+
+<div id="lb" class="lb" hidden role="dialog" aria-modal="true" aria-label="Інформація про товар"><div class="lbpanel">
+<button class="lbx" id="lbx" aria-label="Закрити">&times;</button>
+<div class="lbm"><div class="lbv"><img id="lbi" alt=""><button class="lbn lbl" id="lbp" aria-label="Попереднє фото">&#8249;</button><button class="lbn lbr" id="lbn" aria-label="Наступне фото">&#8250;</button><span class="lbc" id="lbc"></span></div><div class="lbt" id="lbt"></div></div>
+<div class="lbi2"><h2 id="lbh"></h2><div class="lbpr" id="lbpr"></div><p class="lbmin" id="lbm"></p>
+<div id="mvw"></div>
+<div class="qc"><button id="mqm" aria-label="Менше">&#8722;</button><input id="mq" type="number" aria-label="Кількість, шт"><button id="mqp" aria-label="Більше">+</button><span id="mqu">шт</span></div>
+<div class="row"><span class="price" id="mt"></span><button class="add" id="madd">Додати до кошика</button></div>
+<p class="ok" id="mok" role="status"></p>
+<h3 id="lbdh">Опис</h3><p id="lbs"></p><ul class="ps" id="lbl2"></ul><div class="lbd" id="lbd"></div></div>
+</div></div>
+
+<script>
+var P=[{t:"w",n:"Вертепна маска кози",p:350,wp:300,wm:10,min:1,ar:"3/4",h:"В набір входить:",im:["img/002.jpg","img/003.jpg","img/004.jpg","img/005.jpg","img/006.jpg","img/007.jpg","img/008.jpg"],ls:["Розмір маски: 27 см (висота)","Маска підходить для дітей і дорослих","Палиця: 25 см","Стрічки різнокольорові","Дзвоники: 3 шт","Фарби: 6 базових і золотий","Пензлик","Пакування"]},{t:"w",n:"Вертепна зірка 15 см",p:180,wp:150,wm:10,min:1,ar:"3/4",h:"В набір входить:",im:["img/009.jpg","img/010.jpg","img/011.jpg","img/012.jpg","img/013.jpg"],ls:["Зірка: діаметр 15 см","Палиця: 25 см","Дзвоники: 8 шт, різнокольорові (10 мм діаметр)","Стрічки: 8 шт, різнокольорові","Фарби: 6 базових кольорів + золотий","Пензлик: 1 шт","Кріплення: передня зірочка","Упаковано у пакетик, зручно потім зберігати"]},{t:"w",n:"Підставки для шкільного приладдя",p:80,min:1,ar:"3/4",h:"Опис:",im:["img/014.jpg", "img/015.jpg", "img/016.jpg", "img/017.jpg"],ls:["Дерев’яна підставка для олівців і ручок","Малюнок та об’ємне ім’я дитини","Малюнки і імена можна будь-які","У вартість входить лише підставка (олівці, ручки та лінійки на фото — для прикладу)"]},{t:"w",n:"Ручки і олівці",p:20,min:1,ar:"3/4",h:"Опис:",v:[{n:"Олівець",p:20},{n:"Ручка",p:60},{n:"Ручка і олівець",p:80}],im:["img/018.jpg", "img/019.jpg", "img/020.jpg", "img/021.jpg"],ls:["Гравіювання імені або будь-якого напису","Ручка — бамбукова","Олівці — різних кольорів, з гумкою","Упаковано у крафт-пакет зі стрічкою"]},{t:"w",n:"Підставки для телефона",p:60,min:1,ar:"3/4",h:"Опис:",im:["img/022.jpg", "img/023.jpg", "img/024.jpg"],ls:["Дерев’яна підставка для телефона","Кольоровий малюнок і напис","Ім’я, побажання чи назва школи — на ваш вибір","Зручно ставити телефон на зарядку"]},{t:"w",n:"Іменні лінійки",p:60,min:1,ar:"3/4",h:"Опис:",v:[{n:"Лінійка",p:60},{n:"Лінійка і олівець",p:80}],im:["img/025.jpg", "img/026.jpg", "img/027.jpg", "img/028.jpg"],ls:["Дерев’яна лінійка 15 см","Об’ємне кольорове ім’я дитини","Декор на вибір: сердечка, зірочки, ромашки або м’ячики","Олівець — з гравіюванням імені"]},{t:"w",n:"Пошта Святого Миколая",p:650,min:1,ar:"3/4",h:"Опис:",im:["img/029.jpg", "img/030.jpg", "img/031.jpg", "img/032.jpg", "img/033.jpg", "img/034.jpg", "img/035.jpg"],ls:["🎁 У подарунок — замок із ключем!","Розміри: висота — 33 см, ширина — 27 см, глибина — 24 см","Написи можна змінити: «Пошта Діда Мороза», «Секретний Санта», «Пошта на Північний полюс» тощо"],d:"<p>Декоративна поштова скринька «Пошта Святого Миколая / Діду Морозу / Secret Santa / Листи Санті» — це святковий атрибут, який створює атмосферу зимової казки та чарівництва.</p><p>Скринька зроблена у гарному різдвяному дизайні, ідеально підходить для листів із побажаннями, вітальних листівок і невеликих сюрпризів. Можна використовувати вдома, у дитячому садку, школі, офісі або на святковій фотозоні.</p><h4>✨ Особливості</h4><ul><li>Стильний новорічний декор, який привертає увагу</li><li>Підходить для листів дітям і дорослим</li><li>Можна використовувати для гри «Таємний Санта»</li><li>Виготовлена з міцних матеріалів, багаторазова</li><li>Створює затишок і святковий настрій</li></ul><h4>🎄 Ідеально для</h4><ul><li>Новорічного прикрашання будинку або офісу</li><li>Дитячих свят і ранків</li><li>Подарунка друзям і колегам</li><li>Фотосесій і зимового декору</li></ul><p>🔔 Нехай кожен напише лист Святому Миколаю або Санті та повірить у диво!</p>"},{t:"d",n:"Світильники для вулиці на сонячній батареї",p:350,min:1,h:"Опис:",vl:"Колір",v:[{n:"Жовтий",p:350},{n:"Білий",p:350},{n:"Молочно-прозорий",p:350},{n:"Рожевий",p:350},{n:"Ніжно-рожевий",p:350},{n:"Бузковий",p:350},{n:"Червоний",p:350}],ar:"3/4",im:["img/036.jpg", "img/037.jpg", "img/038.jpg", "img/039.jpg", "img/040.jpg", "img/041.jpg", "img/042.jpg", "img/043.jpg", "img/044.jpg", "img/045.jpg", "img/046.jpg"],ls:["Працює від сонячної батареї — без проводів і розеток", "Розмір: 13 × 13 × 13 см", "Міцний вуличний пластик: не крихкий і не деформується", "Колір — на ваш вибір"],d:"<p>Декоративний вуличний світильник на сонячній батареї — стильна прикраса для саду, двору, тераси, альтанки чи зони відпочинку. Виріб виконаний методом 3D-друку та має оригінальний дизайн у формі квітки, який красиво виглядає серед дерев, кущів та садових рослин.</p><p>Використовується тільки міцний і якісний пластик спеціально для вулиці — не крихкий і не деформується.</p><p>Світильник заряджається від сонячного світла протягом дня та створює м’яке затишне освітлення у вечірній час. Його можна підвісити на гілку, гачок, перголу чи іншу зручну опору.</p><h4>Особливості товару</h4><ul><li>працює від сонячної батареї</li><li>підходить для вулиці, саду, двору, тераси та альтанки</li><li>оригінальний дизайн, виготовлений на 3D-принтері</li><li>доступний у різних кольорах</li><li>легкий та зручний для підвішування</li><li>створює атмосферне декоративне освітлення</li><li>відмінний варіант для подарунка чи прикраси ділянки</li></ul><h4>Характеристики</h4><ul><li><b>Тип:</b> декоративний вуличний світильник</li><li><b>Живлення:</b> сонячна батарея</li><li><b>Матеріал:</b> пластик, 3D-друк</li><li><b>Розмір:</b> 13 × 13 × 13 см</li><li><b>Колір:</b> різні варіанти на вибір</li><li><b>Розміщення:</b> підвісне</li><li><b>Призначення:</b> сад, двір, тераса, альтанка, дача, зона відпочинку</li></ul><p>Такий світильник стане гарним акцентом у саду та додасть затишку вашій ділянці. Завдяки сонячній батареї не потрібне підключення до розетки або прокладання проводів. Просто розмістіть світильник у місці, де вдень потрапляє сонячне світло, і ввечері він радуватиме м’яким підсвічуванням.</p><p>Колір виробу можна вибрати індивідуально.</p>"},{t:"d",n:"Вивіски",p:250,min:1,u:"букв",pt:"Ціна: <b>від 250 грн</b> за букву.",h:"Опис:",ar:"3/4",im:["img/047.jpg", "img/048.jpg", "img/049.jpg", "img/050.jpg", "img/051.jpg", "img/052.jpg", "img/053.jpg", "img/054.jpg", "img/055.jpg"],ls:["Якісний 3D-друк", "Розміри — до 25 см", "Кольори — індивідуально", "Остаточна ціна — після узгодження макета з менеджером"]}];
+var cart=[],f="all",sel={},$=function(i){return document.getElementById(i)};
+function fmt(n){return n.toLocaleString("uk-UA")+" грн"}
+function draw(){$("grid").innerHTML=P.map(function(x,i){if(x.t!=cat)return "";
+if(!x.p)return '<article class="p" data-p="'+i+'">'+(x.im?'<div class="car"><div class="trk">'+x.im.map(function(s,k){return '<img style="aspect-ratio:'+x.ar+'" src="'+s+'" alt="'+x.n+', фото '+(k+1)+'" loading="lazy">'}).join("")+'</div><button class="cb l" data-c="-1" aria-label="Попереднє фото">&#8249;</button><button class="cb r" data-c="1" aria-label="Наступне фото">&#8250;</button><span class="cn">1 / '+x.im.length+'</span></div>':'<div class="ph" aria-hidden="true"><span>Фото незабаром</span></div>')+'<div class="pb"><h3 class="pt">'+x.n+'</h3><p class="ml">Ціна — <b>за домовленістю</b>.</p></div></article>';
+return '<article class="p" data-p="'+i+'"><div class="car"><div class="trk">'+x.im.map(function(s,k){return '<img style="aspect-ratio:'+x.ar+'" src="'+s+'" alt="'+x.n+', фото '+(k+1)+'" loading="lazy">'}).join("")+'</div><button class="cb l" data-c="-1" aria-label="Попереднє фото">&#8249;</button><button class="cb r" data-c="1" aria-label="Наступне фото">&#8250;</button><span class="cn">1 / '+x.im.length+'</span></div><div class="pb"><h3 class="pt">'+x.n+'</h3>'+(x.h?'<p class="ml"><b>'+x.h+'</b></p>':'')+'<ul class="ps">'+x.ls.map(function(l){return "<li>"+l+"</li>"}).join("")+'</ul>'+(x.d?'<p class="ml"><button class="more" data-more="'+i+'">Детальніше про товар →</button></p>':'')+(x.v?'<label class="ml" for="v'+i+'"><b>'+(x.vl||'Варіант')+':</b></label>'+vsel(i,'id="v'+i+'" data-vs="'+i+'"'):'<p class="ml">'+(x.pt||'Ціна: <b>'+x.p+' грн</b> за штуку.')+(x.wm?'<br>Від '+x.wm+' шт — <b>'+x.wp+' грн</b> за штуку.':'')+'</p>')+'<div class="qc"><button data-d="-1" data-k="'+i+'" aria-label="Менше">&#8722;</button><input id="q'+i+'" data-k="'+i+'" type="number" min="'+x.min+'" value="'+x.min+'" aria-label="Кількість, шт"><button data-d="1" data-k="'+i+'" aria-label="Більше">+</button><span>'+(x.u||'шт')+'</span></div><div class="row"><span class="price" id="t'+i+'">Разом: '+fmt(x.min*pr(i,x.min))+'</span><button class="add" data-i="'+i+'">Додати до кошика</button></div></div></article>'}).join("")}
+document.addEventListener("click",function(e){var b=e.target.closest("[data-c]");if(!b)return;var t=b.parentNode.querySelector(".trk");t.scrollBy({left:t.clientWidth*(+b.dataset.c),behavior:"smooth"})});
+document.addEventListener("scroll",function(e){var t=e.target;if(!t.classList||!t.classList.contains("trk"))return;var n=Math.round(t.scrollLeft/t.clientWidth)+1;t.parentNode.querySelector(".cn").textContent=n+" / "+t.children.length},true);
+var cat="w";
+function pr(i,q,v){var x=P[i];if(x.v)return x.v[v==null?(sel[i]||0):v].p;return x.wm&&q>=x.wm?x.wp:x.p}
+function nm(c){var x=P[c.i];return x.n+(x.v?" — "+x.v[c.v].n:"")}
+function vsel(i,a){return '<select class="vs" '+a+'>'+P[i].v.map(function(o,j){return '<option value="'+j+'"'+(j==(sel[i]||0)?" selected":"")+'>'+o.n+" — "+o.p+" грн</option>"}).join("")+"</select>"}
+function addc(k,q){var v=P[k].v?(sel[k]||0):null,ex=cart.filter(function(c){return c.i==k&&c.v==v})[0];if(ex)ex.q+=q;else cart.push({i:k,q:q,v:v})}
+function qv(i){var v=parseInt($("q"+i).value,10);return Math.max(P[i].min,Math.min(9999,isNaN(v)?P[i].min:v))}
+function tot(i){$("t"+i).textContent="Разом: "+fmt(qv(i)*pr(i,qv(i)))}
+function upd(){var s=0,n=0;$("items").innerHTML=cart.length?cart.map(function(x,i){var u=pr(x.i,x.q,x.v),t=x.q*u;s+=t;n+=x.q;return '<div class="it"><span>'+nm(x)+'<br>'+x.q+' '+(P[x.i].u||'шт')+' × '+u+' грн = '+fmt(t)+'</span><button data-r="'+i+'">Видалити</button></div>'}).join(""):'<p style="color:var(--mute)">Кошик порожній. Додайте товар із каталогу.</p>';$("cnt").textContent=n;$("sum").textContent=fmt(s)}
+document.addEventListener("click",function(e){var t=e.target;
+if(t.dataset.d){var k=+t.dataset.k;$("q"+k).value=Math.max(P[k].min,qv(k)+ +t.dataset.d);tot(k)}
+if(t.dataset.i){var k=+t.dataset.i,q=qv(k);$("q"+k).value=q;tot(k);addc(k,q);upd();$("cmsg").textContent=""}
+if(t.dataset.r){cart.splice(+t.dataset.r,1);upd()}});
+document.addEventListener("input",function(e){if(e.target.dataset.k&&e.target.id)tot(+e.target.dataset.k)});
+document.addEventListener("change",function(e){if(e.target.dataset.k&&e.target.id){var k=+e.target.dataset.k;e.target.value=qv(k);tot(k)}});
+$("open").onclick=function(){$("cart").classList.add("open")};
+$("close").onclick=function(){$("cart").classList.remove("open")};
+$("order").onclick=openCo;
+var lp=0,li=0,tx=0;
+function mqv(){var v=parseInt($("mq").value,10);return Math.max(P[lp].min,Math.min(9999,isNaN(v)?P[lp].min:v))}
+function mtot(){$("mt").textContent="Разом: "+fmt(mqv()*pr(lp,mqv()))}
+function msync(){$("q"+lp).value=mqv();tot(lp)}
+function lbShow(){var x=P[lp],a=x.im;$("lbi").src=a[li];$("lbi").alt=x.n+", фото "+(li+1);$("lbc").textContent=(li+1)+" / "+a.length;[].forEach.call($("lbt").children,function(t,i){t.className="th"+(i==li?" on":"")})}
+function lbOpen(p,i){lp=p;li=i;var x=P[p];$("lbh").textContent=x.n;$("lbpr").textContent=!x.p?"Ціна — за домовленістю":x.v&&x.v.some(function(o){return o.p!=x.v[0].p})?"від "+Math.min.apply(null,x.v.map(function(o){return o.p}))+" грн":x.v?x.v[0].p+" грн за штуку":x.pt?x.pt.replace(/<[^>]+>/g,"").replace("Ціна: ","").replace(/\.$/,""):x.p+" грн за штуку";$("mqu").textContent=x.u||"шт";$("mvw").innerHTML=x.v?vsel(p,'id="mv" aria-label="Варіант"'):"";$("lbm").textContent=x.wm?"Від "+x.wm+" шт — "+x.wp+" грн за штуку":"";document.querySelector(".lbi2 .qc").style.display=$("madd").parentNode.style.display=x.p?"":"none";$("lbdh").style.display=(x.ls&&x.ls.length)||x.d?"":"none";if(x.p){$("mq").min=x.min;$("mq").value=qv(p);mtot()}$("mok").textContent="";
+$("lbt").innerHTML=x.im.map(function(s,k){return '<button class="th" data-t="'+k+'" aria-label="Фото '+(k+1)+'"><img src="'+s+'" alt=""></button>'}).join("");
+$("lbs").innerHTML=x.h&&x.h!="Опис:"?"<b>"+x.h+"</b>":"";$("lbl2").innerHTML=x.ls.map(function(l){return "<li>"+l+"</li>"}).join("");$("lbd").innerHTML=x.d||"";
+lbShow();$("lb").hidden=false;document.body.style.overflow="hidden";$("lbx").focus()}
+function lbClose(){$("lb").hidden=true;document.body.style.overflow=""}
+function lbStep(d){var n=P[lp].im.length;li=(li+d+n)%n;lbShow()}
+document.addEventListener("click",function(e){var im=e.target.closest&&e.target.closest(".trk img");if(im){var ps=document.querySelectorAll(".p");lbOpen(+im.closest(".p").dataset.p,[].indexOf.call(im.parentNode.children,im))}});
+$("lbx").onclick=lbClose;$("lbp").onclick=function(){lbStep(-1)};$("lbn").onclick=function(){lbStep(1)};
+$("lb").addEventListener("click",function(e){if(e.target===$("lb"))lbClose();var t=e.target.closest("[data-t]");if(t){li=+t.dataset.t;lbShow()}});
+$("mqm").onclick=function(){$("mq").value=Math.max(P[lp].min,mqv()-1);mtot();msync()};
+$("mqp").onclick=function(){$("mq").value=mqv()+1;mtot();msync()};
+$("mq").addEventListener("input",mtot);
+$("mq").addEventListener("change",function(){$("mq").value=mqv();mtot();msync()});
+$("madd").onclick=function(){var q=mqv();addc(lp,q);upd();$("mok").textContent="Додано до кошика: "+q+" "+(P[lp].u||"шт")+".";$("cmsg").textContent=""};
+document.addEventListener("keydown",function(e){if($("lb").hidden)return;if(e.key=="Escape")lbClose();if(e.target.tagName=="INPUT")return;if(e.key=="ArrowLeft")lbStep(-1);if(e.key=="ArrowRight")lbStep(1)});
+$("lbi").addEventListener("touchstart",function(e){tx=e.changedTouches[0].clientX},{passive:true});
+$("lbi").addEventListener("touchend",function(e){var d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)lbStep(d<0?1:-1)},{passive:true});
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".cat");if(!b)return;cat=b.dataset.cat;document.querySelectorAll(".cat").forEach(function(c){c.setAttribute("aria-pressed",c==b)});draw()});
+function openCo(){if(!cart.length){$("cmsg").textContent="Спочатку додайте товари до кошика.";return}
+$("cart").classList.remove("open");var s=0;$("cosl").innerHTML=cart.map(function(x){var u=pr(x.i,x.q,x.v),t=x.q*u;s+=t;return '<div class="it"><span>'+nm(x)+'<br>'+x.q+' '+(P[x.i].u||'шт')+' × '+u+' грн</span><b>'+fmt(t)+'</b></div>'}).join("");$("cost").textContent=fmt(s);
+$("coerr").textContent="";$("cosuc").hidden=true;$("cogrid").hidden=false;$("shop").hidden=true;$("checkout").hidden=false;try{location.hash="zamovlennia"}catch(e){}window.scrollTo(0,0)}
+function closeCo(){if($("checkout").hidden)return;$("checkout").hidden=true;$("shop").hidden=false;try{if(location.hash)location.hash=""}catch(e){}window.scrollTo(0,0)}
+window.addEventListener("hashchange",function(){if(location.hash!="#zamovlennia")closeCo()});
+$("coback").onclick=closeCo;$("cook").onclick=closeCo;
+$("cosend").onclick=function(){var ln=$("cln").value.trim(),fn=$("cfn").value.trim(),ph=$("cph").value.trim(),ct=$("ccity").value.trim(),br=$("cbr").value.trim(),dv=document.querySelector('input[name="dv"]:checked').value;
+if(!ln||!fn||!ph||!ct||!br){$("coerr").textContent="Заповніть усі поля.";return}
+if(ph.replace(/\D/g,"").length<10){$("coerr").textContent="Перевірте номер телефону.";return}
+$("coerr").textContent="";var nmv=$("cnm").value.trim(),L=["Нове замовлення — Майстерня натхнення",""],s=0;cart.forEach(function(c,k){var u=pr(c.i,c.q,c.v),tt=c.q*u;s+=tt;L.push((k+1)+". "+nm(c)+": "+c.q+" "+(P[c.i].u||"шт")+" × "+u+" грн = "+fmt(tt))});L.push("Разом: "+fmt(s)+(s>=1500?" (доставка безкоштовна)":""),"","Покупець: "+ln+" "+fn,"Телефон: "+ph,"Доставка: "+dv+", "+ct+", "+br);if(nmv)L.push("Імена / написи: "+nmv);var msg=L.join("\n");window.__msg=msg;$("cosuct").textContent=msg;$("vbr").href="viber://chat?number=%2B380997738531&draft="+encodeURIComponent(msg);$("vcopy").textContent="скопіюйте текст замовлення";
+$("cogrid").hidden=true;$("cosuc").hidden=false;cart=[];upd();window.scrollTo(0,0)};
+document.addEventListener("change",function(e){var s=e.target;if(s.id=="mv"){sel[lp]=+s.value;mtot();var c=$("v"+lp);if(c)c.value=s.value;tot(lp)}else if(s.dataset&&s.dataset.vs!=null){sel[+s.dataset.vs]=+s.value;tot(+s.dataset.vs)}});
+document.addEventListener("click",function(e){var m=e.target.closest&&e.target.closest("[data-more]");if(m)lbOpen(+m.dataset.more,0)});
+$("vcopy").onclick=function(){var b=this,m=window.__msg||"";function ok(){b.textContent="текст скопійовано ✓"}try{navigator.clipboard.writeText(m).then(ok,fb)}catch(e){fb()}function fb(){var a=document.createElement("textarea");a.value=m;document.body.appendChild(a);a.select();try{document.execCommand("copy");ok()}catch(e){}a.remove()}};
+draw();upd();
+</script>
+</body>
+</html>
